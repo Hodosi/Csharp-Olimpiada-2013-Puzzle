@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace Puzzle
 {
@@ -17,31 +19,77 @@ namespace Puzzle
         }
 
         int slectedimg = 0;
+        PICTURES pictures = new PICTURES();
         private void Joc_Load(object sender, EventArgs e)
         {
-            string fn = Application.StartupPath + @"\Img";
-            fn = fn + @"\image" + "1" + @"\image" + "1" + ".jpg";
-            this.pictureBox1.Image = Image.FromFile(fn);
+            //string fn,poz;
+            //MemoryStream pic;
+            //---------------------------------------------------
+            //fn = Application.StartupPath + @"\Img";
+            //fn = fn + @"\image" + "1" + @"\image" + "1" + ".jpg";
+            //this.pictureBox1.Image = Image.FromFile(fn);
 
-            fn = Application.StartupPath + @"\Img";
-            fn = fn + @"\image" + "2" + @"\image" + "2" + ".jpg";
-            this.pictureBox2.Image = Image.FromFile(fn);
+            //fn = Application.StartupPath + @"\Img";
+            //fn = fn + @"\image" + "2" + @"\image" + "2" + ".jpg";
+            //this.pictureBox2.Image = Image.FromFile(fn);
 
-            fn = Application.StartupPath + @"\Img";
-            fn = fn + @"\image" + "3" + @"\image" + "3" + ".jpg";
-            this.pictureBox3.Image = Image.FromFile(fn);
+            //fn = Application.StartupPath + @"\Img";
+            //fn = fn + @"\image" + "3" + @"\image" + "3" + ".jpg";
+            //this.pictureBox3.Image = Image.FromFile(fn);
 
-            fn = Application.StartupPath + @"\Img";
-            fn = fn + @"\image" + "4" + @"\image" + "4" + ".jpg";
-            this.pictureBox4.Image = Image.FromFile(fn);
+            //fn = Application.StartupPath + @"\Img";
+            //fn = fn + @"\image" + "4" + @"\image" + "4" + ".jpg";
+            //this.pictureBox4.Image = Image.FromFile(fn);
 
-            fn = Application.StartupPath + @"\Img";
-            fn = fn + @"\image" + "5" + @"\image" + "5" + ".jpg";
-            this.pictureBox5.Image = Image.FromFile(fn);
+            //fn = Application.StartupPath + @"\Img";
+            //fn = fn + @"\image" + "5" + @"\image" + "5" + ".jpg";
+            //this.pictureBox5.Image = Image.FromFile(fn);
 
-            fn = Application.StartupPath + @"\Img";
-            fn = fn + @"\image" + "6" + @"\image" + "6" + ".jpg";
-            this.pictureBox6.Image = Image.FromFile(fn);
+            //fn = Application.StartupPath + @"\Img";
+            //fn = fn + @"\image" + "6" + @"\image" + "6" + ".jpg";
+            //this.pictureBox6.Image = Image.FromFile(fn);
+
+
+            string fn, poz;
+            MemoryStream pic,stream;
+            DataTable table;
+            List<PictureBox> pictureBoxes = new List<PictureBox>();
+            pictureBoxes.Add(this.pictureBox1);
+            pictureBoxes.Add(this.pictureBox2);
+            pictureBoxes.Add(this.pictureBox3);
+            pictureBoxes.Add(this.pictureBox4);
+            pictureBoxes.Add(this.pictureBox5);
+            pictureBoxes.Add(this.pictureBox6);
+            //------------------clear DB------------------------------
+            pictures.deletePic();
+            //------------------save img into DB----------------------
+            PictureBox pictureBox = new PictureBox();
+            for (int i = 1; i <= 6; i++)
+            {
+                fn = Application.StartupPath + @"\Img\image";
+                fn = fn + i.ToString() + @"\image" + i.ToString() + ".jpg";
+                pictureBox.Image = Image.FromFile(fn);
+                pic = new MemoryStream();
+                pictureBox.Image.Save(pic, pictureBox.Image.RawFormat);
+                poz = i.ToString();
+                if (pictures.insertPic(0, poz, fn, pic))
+                {
+                    MessageBox.Show("Pic added");
+                }
+                else
+                {
+                    MessageBox.Show("Insertion Error");
+                }
+            }
+            //--------------------fill pictureBoxes-------------
+            for (int i = 1; i <= 6; i++)
+            {
+                table = pictures.getPic(i.ToString());
+                byte[] img = (byte[])table.Rows[0][0];
+                stream = new MemoryStream(img);
+                pictureBoxes[i-1].Image = Image.FromStream(stream);
+            }
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

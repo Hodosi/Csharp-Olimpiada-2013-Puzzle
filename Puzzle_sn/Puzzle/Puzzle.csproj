@@ -76,6 +76,7 @@
     <Compile Include="Lvl2.Designer.cs">
       <DependentUpon>Lvl2.cs</DependentUpon>
     </Compile>
+    <Compile Include="PICTURES.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Joc.resx">

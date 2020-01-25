@@ -186,6 +186,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.AccessibleName = "pictureBox1";
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(35, 66);
