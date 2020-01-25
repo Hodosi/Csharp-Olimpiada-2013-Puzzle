@@ -22,6 +22,7 @@ namespace Puzzle
             if (this.textBox_pass.Text == "jucator")
             {
                 nume_user = this.textBox_nume.Text;
+                GLOBAL.globalusername = nume_user;
                 Joc jf = new Joc();
                 jf.ShowDialog();
             }
@@ -43,6 +44,11 @@ namespace Puzzle
             {
                 MessageBox.Show("Parola Invalida!");
             }
+        }
+
+        private void LogIn_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

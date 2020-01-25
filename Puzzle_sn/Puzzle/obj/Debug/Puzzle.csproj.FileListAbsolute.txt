@@ -20,3 +20,4 @@ D:\Desktop\2013\Csharp-Olimpiada-2013-Puzzle\Puzzle_sn\Puzzle\obj\Debug\Puzzle.p
 D:\Desktop\2013\Csharp-Olimpiada-2013-Puzzle\Puzzle_sn\Puzzle\bin\Debug\Puzzle.exe
 D:\Desktop\2013\Csharp-Olimpiada-2013-Puzzle\Puzzle_sn\Puzzle\bin\Debug\Puzzle.pdb
 D:\Desktop\2013\Csharp-Olimpiada-2013-Puzzle\Puzzle_sn\Puzzle\obj\Debug\Puzzle.Joc.resources
+D:\Desktop\2013\Csharp-Olimpiada-2013-Puzzle\Puzzle_sn\Puzzle\obj\Debug\Puzzle.Administrare.resources

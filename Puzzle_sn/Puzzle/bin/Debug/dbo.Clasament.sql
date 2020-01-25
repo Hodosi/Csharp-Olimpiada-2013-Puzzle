@@ -1,7 +1,8 @@
-﻿CREATE TABLE [dbo].[Clasament]
-(
-	[IdUser] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Nume] VARCHAR(50) NULL, 
-    [Timp] TIME NULL, 
-    [Patratele] INT NULL
-)
+﻿CREATE TABLE [dbo].[Clasament] (
+    [IdUser]    INT          IDENTITY (1, 1) NOT NULL,
+    [Nume]      VARCHAR (50) NULL,
+    [Timp]      VARCHAR(50)     NULL,
+    [Patratele] INT          NULL,
+    PRIMARY KEY CLUSTERED ([IdUser] ASC)
+);
+

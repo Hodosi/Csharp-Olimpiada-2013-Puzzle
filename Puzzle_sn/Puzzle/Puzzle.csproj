@@ -50,6 +50,7 @@
     <Compile Include="Administrare.Designer.cs">
       <DependentUpon>Administrare.cs</DependentUpon>
     </Compile>
+    <Compile Include="CLASAMENT.cs" />
     <Compile Include="CONNECTION.cs" />
     <Compile Include="GLOBAL.cs" />
     <Compile Include="Joc.cs">
@@ -79,6 +80,9 @@
     <Compile Include="PICTURES.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Administrare.resx">
+      <DependentUpon>Administrare.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Joc.resx">
       <DependentUpon>Joc.cs</DependentUpon>
     </EmbeddedResource>

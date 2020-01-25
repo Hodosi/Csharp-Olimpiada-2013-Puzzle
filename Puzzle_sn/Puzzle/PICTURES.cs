@@ -54,7 +54,7 @@ namespace Puzzle
             command.CommandText = "SELECT Pic FROM Pictures WHERE PicPoz=@poz";
             command.Connection = conn.getConnection();
 
-            command.Parameters.Add("poz", SqlDbType.VarChar).Value =poz;
+            command.Parameters.Add("poz", SqlDbType.VarChar).Value = poz;
 
             DataTable table = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter();

@@ -20,36 +20,13 @@ namespace Puzzle
 
         int slectedimg = 0;
         PICTURES pictures = new PICTURES();
+        CLASAMENT clasament = new CLASAMENT();
+
         private void Joc_Load(object sender, EventArgs e)
         {
-            //string fn,poz;
-            //MemoryStream pic;
-            //---------------------------------------------------
-            //fn = Application.StartupPath + @"\Img";
-            //fn = fn + @"\image" + "1" + @"\image" + "1" + ".jpg";
-            //this.pictureBox1.Image = Image.FromFile(fn);
-
-            //fn = Application.StartupPath + @"\Img";
-            //fn = fn + @"\image" + "2" + @"\image" + "2" + ".jpg";
-            //this.pictureBox2.Image = Image.FromFile(fn);
-
-            //fn = Application.StartupPath + @"\Img";
-            //fn = fn + @"\image" + "3" + @"\image" + "3" + ".jpg";
-            //this.pictureBox3.Image = Image.FromFile(fn);
-
-            //fn = Application.StartupPath + @"\Img";
-            //fn = fn + @"\image" + "4" + @"\image" + "4" + ".jpg";
-            //this.pictureBox4.Image = Image.FromFile(fn);
-
-            //fn = Application.StartupPath + @"\Img";
-            //fn = fn + @"\image" + "5" + @"\image" + "5" + ".jpg";
-            //this.pictureBox5.Image = Image.FromFile(fn);
-
-            //fn = Application.StartupPath + @"\Img";
-            //fn = fn + @"\image" + "6" + @"\image" + "6" + ".jpg";
-            //this.pictureBox6.Image = Image.FromFile(fn);
 
 
+            this.dataGridView1.DataSource=clasament.getClasament();
             string fn, poz;
             MemoryStream pic,stream;
             DataTable table;
@@ -175,6 +152,26 @@ namespace Puzzle
                     l2.ShowDialog();
                 }
             }
+        }
+
+        private void button_Iesire_Click(object sender, EventArgs e)
+        {
+            string fn = Application.StartupPath + @"\Clasament.txt";
+            DataTable table = clasament.getClasament();
+            string row="";
+
+            for(int i = 0; i < table.Rows.Count; i++)
+            {
+                for (int j = 1; j <=3; j++)
+                {
+                    row += dataGridView1.Rows[i].Cells[j].Value.ToString()+" ";
+                }
+                MessageBox.Show(row);
+                System.IO.File.AppendAllText(fn, row);
+                System.IO.File.AppendAllText(fn, "\n");
+                row = "";
+            }
+            this.Close();
         }
     }
 }

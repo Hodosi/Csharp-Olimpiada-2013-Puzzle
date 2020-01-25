@@ -32,6 +32,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabPage_Iesire = new System.Windows.Forms.TabPage();
             this.tabPage_Clasament = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage_Joc_Nou = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -43,6 +44,10 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.button_Iesire = new System.Windows.Forms.Button();
+            this.tabPage_Iesire.SuspendLayout();
+            this.tabPage_Clasament.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage_Joc_Nou.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -61,6 +66,7 @@
             // 
             // tabPage_Iesire
             // 
+            this.tabPage_Iesire.Controls.Add(this.button_Iesire);
             this.tabPage_Iesire.Location = new System.Drawing.Point(4, 38);
             this.tabPage_Iesire.Name = "tabPage_Iesire";
             this.tabPage_Iesire.Size = new System.Drawing.Size(1574, 1011);
@@ -70,6 +76,7 @@
             // 
             // tabPage_Clasament
             // 
+            this.tabPage_Clasament.Controls.Add(this.dataGridView1);
             this.tabPage_Clasament.Location = new System.Drawing.Point(4, 38);
             this.tabPage_Clasament.Name = "tabPage_Clasament";
             this.tabPage_Clasament.Padding = new System.Windows.Forms.Padding(3);
@@ -77,6 +84,17 @@
             this.tabPage_Clasament.TabIndex = 1;
             this.tabPage_Clasament.Text = "Clasament";
             this.tabPage_Clasament.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(8, 6);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(606, 387);
+            this.dataGridView1.TabIndex = 0;
             // 
             // tabPage_Joc_Nou
             // 
@@ -210,6 +228,16 @@
             this.tabControl1.Size = new System.Drawing.Size(1582, 1053);
             this.tabControl1.TabIndex = 1;
             // 
+            // button_Iesire
+            // 
+            this.button_Iesire.Location = new System.Drawing.Point(267, 122);
+            this.button_Iesire.Name = "button_Iesire";
+            this.button_Iesire.Size = new System.Drawing.Size(101, 73);
+            this.button_Iesire.TabIndex = 0;
+            this.button_Iesire.Text = "Iesire";
+            this.button_Iesire.UseVisualStyleBackColor = true;
+            this.button_Iesire.Click += new System.EventHandler(this.button_Iesire_Click);
+            // 
             // Joc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -222,6 +250,9 @@
             this.Text = "Joc";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.Joc_Load);
+            this.tabPage_Iesire.ResumeLayout(false);
+            this.tabPage_Clasament.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage_Joc_Nou.ResumeLayout(false);
             this.tabPage_Joc_Nou.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -251,5 +282,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button_Iesire;
     }
 }

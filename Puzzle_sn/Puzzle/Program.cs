@@ -15,7 +15,7 @@ namespace Puzzle
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Joc());
+            Application.Run(new LogIn());
         }
     }
 }
