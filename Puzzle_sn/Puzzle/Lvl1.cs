@@ -32,31 +32,22 @@ namespace Puzzle
             this.pictureBox2.AllowDrop = true;
             this.pictureBox3.AllowDrop = true;
             this.pictureBox4.AllowDrop = true;
-            //---------------------------------
-            timer1.Enabled = true;
             //----------------------------
             MessageBox.Show(GLOBAL.selectedImg.ToString());
             this.timer1.Enabled = true;
-            for (int i = 0; i < 2; i++)
-            {
-                for (int j = 0; j < 2; j++)
-                {
-                    string valname = i.ToString() + "-" + j.ToString();
-                    val.Add(valname);
-                }
-            }
+            fillPicPozVal();
             //-----------------------------
             int rimg;
             string fn, poz;
             MemoryStream pic, stream;
             DataTable table;
+            PictureBox pictureBox = new PictureBox();
             //List<PictureBox> pictureBoxes = new List<PictureBox>();
             pictureBoxes.Add(this.pictureBox1);
             pictureBoxes.Add(this.pictureBox2);
             pictureBoxes.Add(this.pictureBox3);
             pictureBoxes.Add(this.pictureBox4);
             //------------------save img into DB----------------------
-            PictureBox pictureBox = new PictureBox();
             for (int i = 1; i <= 4; i++)
             {
                 rimg = rand.Next(0, val.Count);
@@ -79,9 +70,12 @@ namespace Puzzle
                 byte[] img = (byte[])table.Rows[0][0];
                 stream = new MemoryStream(img);
                 pictureBoxes[i - 1].Image = Image.FromStream(stream);
-
             }
+            fillPicPozVal();
+        }
 
+        public void fillPicPozVal()
+        {
             for (int i = 0; i < 2; i++)
             {
                 for (int j = 0; j < 2; j++)
@@ -122,8 +116,6 @@ namespace Puzzle
                 ss++;
                 this.label_ss.Text = ss.ToString();
             }
-
-
         }
 
         private void pictureBox1_DragDrop(object sender, DragEventArgs e)
@@ -157,8 +149,6 @@ namespace Puzzle
                 updDB();
                 MessageBox.Show("Victory");
             }
-
-
         }
 
         private void pictureBox3_DragDrop(object sender, DragEventArgs e)
@@ -195,42 +185,25 @@ namespace Puzzle
 
         private void pictureBox1_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.Bitmap) && (e.AllowedEffect & DragDropEffects.Copy) != 0)
-            {
-                e.Effect = DragDropEffects.Copy;
-            }
-            else
-            {
-                e.Effect = DragDropEffects.None;
-            }
+            enter(e);
         }
 
         private void pictureBox2_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.Bitmap) && (e.AllowedEffect & DragDropEffects.Copy) != 0)
-            {
-
-                e.Effect = DragDropEffects.Copy;
-            }
-            else
-            {
-                e.Effect = DragDropEffects.None;
-            }
+            enter(e);
         }
 
         private void pictureBox3_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.Bitmap) && (e.AllowedEffect & DragDropEffects.Copy) != 0)
-            {
-                e.Effect = DragDropEffects.Copy;
-            }
-            else
-            {
-                e.Effect = DragDropEffects.None;
-            }
+            enter(e);
         }
 
         private void pictureBox4_DragEnter(object sender, DragEventArgs e)
+        {
+            enter(e);
+        }
+
+        public void enter(DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.Bitmap) && (e.AllowedEffect & DragDropEffects.Copy) != 0)
             {
@@ -311,7 +284,7 @@ namespace Puzzle
             int ptr = 4;
             if (clasament.insertClasament(nume, timp, ptr))
             {
-                MessageBox.Show("ClasamentUpdated");
+                MessageBox.Show("Clasament Updated");
             }
             else
             {
