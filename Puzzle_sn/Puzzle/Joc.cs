@@ -24,11 +24,9 @@ namespace Puzzle
 
         private void Joc_Load(object sender, EventArgs e)
         {
-
-
-            this.dataGridView1.DataSource=clasament.getClasament();
+            this.dataGridView1.DataSource = clasament.getClasament();
             string fn, poz;
-            MemoryStream pic,stream;
+            MemoryStream pic, stream;
             DataTable table;
             List<PictureBox> pictureBoxes = new List<PictureBox>();
             pictureBoxes.Add(this.pictureBox1);
@@ -64,7 +62,7 @@ namespace Puzzle
                 table = pictures.getPic(i.ToString());
                 byte[] img = (byte[])table.Rows[0][0];
                 stream = new MemoryStream(img);
-                pictureBoxes[i-1].Image = Image.FromStream(stream);
+                pictureBoxes[i - 1].Image = Image.FromStream(stream);
             }
 
         }
@@ -75,60 +73,38 @@ namespace Puzzle
             if (this.comboBox1.SelectedItem.ToString() == "4")
             {
                 this.pictureBox1.Enabled = false;
-                this.pictureBox1.Visible = false;
+                this.panel2.Visible = true;
                 this.pictureBox2.Enabled = false;
-                this.pictureBox2.Visible = false;
+                this.panel3.Visible = true;
                 this.pictureBox3.Enabled = false;
-                this.pictureBox3.Visible = false;
+                this.panel4.Visible = true;
                 this.pictureBox5.Enabled = false;
-                this.pictureBox5.Visible = false;
+                this.panel6.Visible = true;
 
-                this.pictureBox4.Visible = true;
-                this.pictureBox6.Visible = true;
+                this.pictureBox4.Enabled = true;
+                this.pictureBox6.Enabled = true;
+
+                this.panel5.Visible = false;
+                this.panel7.Visible = false;
 
             }
             else if (this.comboBox1.SelectedItem.ToString() == "9")
             {
                 this.pictureBox4.Enabled = false;
-                this.pictureBox4.Visible = false;
+                this.panel5.Visible = true;
                 this.pictureBox6.Enabled = false;
-                this.pictureBox6.Visible = false;
+                this.panel7.Visible = true;
 
-                this.pictureBox1.Visible = true;
-                this.pictureBox2.Visible = true;
-                this.pictureBox3.Visible = true;
-                this.pictureBox5.Visible = true;
+                this.pictureBox1.Enabled = true;
+                this.pictureBox2.Enabled = true;
+                this.pictureBox3.Enabled = true;
+                this.pictureBox5.Enabled = true;
+
+                this.panel2.Visible = false;
+                this.panel3.Visible = false;
+                this.panel4.Visible = false;
+                this.panel6.Visible = false;
             }
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            slectedimg = 1;
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            slectedimg = 2;
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            slectedimg = 3;
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            slectedimg = 4;
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            slectedimg = 5;
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            slectedimg = 6;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -137,7 +113,7 @@ namespace Puzzle
             {
                 MessageBox.Show("Selectati numarul de patratele si o imagine");
             }
-            else 
+            else
             {
                 if (this.comboBox1.SelectedItem.ToString() == "4")
                 {
@@ -158,15 +134,15 @@ namespace Puzzle
         {
             string fn = Application.StartupPath + @"\Clasament.txt";
             DataTable table = clasament.getClasament();
-            string row="";
+            string row = "";
             System.IO.File.AppendAllText(fn, "\n\n");
             System.IO.File.AppendAllText(fn, "Clasament Nou");
             System.IO.File.AppendAllText(fn, "\n\n");
             for (int i = 0; i < table.Rows.Count; i++)
             {
-                for (int j = 1; j <=3; j++)
+                for (int j = 1; j <= 3; j++)
                 {
-                    row += dataGridView1.Rows[i].Cells[j].Value.ToString()+" ";
+                    row += dataGridView1.Rows[i].Cells[j].Value.ToString() + " ";
                 }
                 MessageBox.Show(row);
                 System.IO.File.AppendAllText(fn, row);
@@ -176,9 +152,34 @@ namespace Puzzle
             this.Close();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
+            slectedimg = 1;
+        }
 
+        private void pictureBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            slectedimg = 2;
+        }
+
+        private void pictureBox3_MouseClick(object sender, MouseEventArgs e)
+        {
+            slectedimg = 3;
+        }
+
+        private void pictureBox4_MouseClick(object sender, MouseEventArgs e)
+        {
+            slectedimg = 4;
+        }
+
+        private void pictureBox5_MouseClick(object sender, MouseEventArgs e)
+        {
+            slectedimg = 5;
+        }
+
+        private void pictureBox6_MouseClick(object sender, MouseEventArgs e)
+        {
+            slectedimg = 6;
         }
     }
 }

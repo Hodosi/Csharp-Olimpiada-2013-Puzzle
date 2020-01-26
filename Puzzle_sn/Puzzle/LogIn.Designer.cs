@@ -106,6 +106,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_nume);
             this.Controls.Add(this.textBox_pass);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log in";
