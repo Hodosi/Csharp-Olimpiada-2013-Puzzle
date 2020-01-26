@@ -50,7 +50,6 @@ namespace Puzzle
                 {
                     row += dataGridView1.Rows[i].Cells[j].Value.ToString() + " ";
                 }
-                MessageBox.Show(row);
                 System.IO.File.AppendAllText(fn, row);
                 System.IO.File.AppendAllText(fn, "\n");
                 row = "";

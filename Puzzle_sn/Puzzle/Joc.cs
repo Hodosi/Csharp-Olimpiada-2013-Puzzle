@@ -130,28 +130,6 @@ namespace Puzzle
             }
         }
 
-        private void button_Iesire_Click(object sender, EventArgs e)
-        {
-            string fn = Application.StartupPath + @"\Clasament.txt";
-            DataTable table = clasament.getClasament();
-            string row = "";
-            System.IO.File.AppendAllText(fn, "\n\n");
-            System.IO.File.AppendAllText(fn, "Clasament Nou");
-            System.IO.File.AppendAllText(fn, "\n\n");
-            for (int i = 0; i < table.Rows.Count; i++)
-            {
-                for (int j = 1; j <= 3; j++)
-                {
-                    row += dataGridView1.Rows[i].Cells[j].Value.ToString() + " ";
-                }
-                MessageBox.Show(row);
-                System.IO.File.AppendAllText(fn, row);
-                System.IO.File.AppendAllText(fn, "\n");
-                row = "";
-            }
-            this.Close();
-        }
-
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
             slectedimg = 1;
@@ -180,6 +158,27 @@ namespace Puzzle
         private void pictureBox6_MouseClick(object sender, MouseEventArgs e)
         {
             slectedimg = 6;
+        }
+
+        private void button_Iesire_Click(object sender, EventArgs e)
+        {
+            string fn = Application.StartupPath + @"\Clasament.txt";
+            DataTable table = clasament.getClasament();
+            string row = "";
+            System.IO.File.AppendAllText(fn, "\n\n");
+            System.IO.File.AppendAllText(fn, "Clasament Nou");
+            System.IO.File.AppendAllText(fn, "\n\n");
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                for (int j = 1; j <= 3; j++)
+                {
+                    row += dataGridView1.Rows[i].Cells[j].Value.ToString() + " ";
+                }
+                System.IO.File.AppendAllText(fn, row);
+                System.IO.File.AppendAllText(fn, "\n");
+                row = "";
+            }
+            this.Close();
         }
     }
 }

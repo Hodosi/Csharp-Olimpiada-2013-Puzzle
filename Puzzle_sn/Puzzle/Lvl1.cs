@@ -117,69 +117,33 @@ namespace Puzzle
                 this.label_ss.Text = ss.ToString();
             }
         }
-
-        private void pictureBox1_DragDrop(object sender, DragEventArgs e)
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            draged_picture = new MemoryStream();
-            this.pictureBox1.Image.Save(draged_picture, this.pictureBox1.Image.RawFormat);
-            //-----------------------------------------------------------------------------
-            this.pictureBox1.Image = (Bitmap)e.Data.GetData(DataFormats.Bitmap, true);
-            //-----------------------------------------------------------------------------
-            draged_pictureBox.Image = Image.FromStream(draged_picture);
-            //-----------------------------------------------------------------------------
-            if (gameOver())
-            {
-                updDB();
-                MessageBox.Show("Victory");
-            }
+            down(0, e);
         }
 
-        private void pictureBox2_DragDrop(object sender, DragEventArgs e)
+        private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
         {
-            draged_picture = new MemoryStream();
-            this.pictureBox2.Image.Save(draged_picture, this.pictureBox2.Image.RawFormat);
-            //-----------------------------------------------------------------------------
-            this.pictureBox2.Image = (Bitmap)e.Data.GetData(DataFormats.Bitmap, true);
-
-            //-----------------------------------------------------------------------------
-            draged_pictureBox.Image = Image.FromStream(draged_picture);
-            //-----------------------------------------------------------------------------
-            if (gameOver())
-            {
-                updDB();
-                MessageBox.Show("Victory");
-            }
+            down(1, e);
         }
 
-        private void pictureBox3_DragDrop(object sender, DragEventArgs e)
+        private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
         {
-            draged_picture = new MemoryStream();
-            this.pictureBox3.Image.Save(draged_picture, this.pictureBox3.Image.RawFormat);
-            //-----------------------------------------------------------------------------
-            this.pictureBox3.Image = (Bitmap)e.Data.GetData(DataFormats.Bitmap, true);
-            //-----------------------------------------------------------------------------
-            draged_pictureBox.Image = Image.FromStream(draged_picture);
-            //-----------------------------------------------------------------------------
-            if (gameOver())
-            {
-                updDB();
-                MessageBox.Show("Victory");
-            }
+            down(2, e);
         }
 
-        private void pictureBox4_DragDrop(object sender, DragEventArgs e)
+        private void pictureBox4_MouseDown(object sender, MouseEventArgs e)
         {
-            draged_picture = new MemoryStream();
-            this.pictureBox4.Image.Save(draged_picture, this.pictureBox4.Image.RawFormat);
-            //-----------------------------------------------------------------------------
-            this.pictureBox4.Image = (Bitmap)e.Data.GetData(DataFormats.Bitmap, true);
-            //-----------------------------------------------------------------------------
-            draged_pictureBox.Image = Image.FromStream(draged_picture);
-            //-----------------------------------------------------------------------------
-            if (gameOver())
+            down(3, e);
+        }
+
+        public void down(int i, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
             {
-                updDB();
-                MessageBox.Show("Victory");
+                draged_pictureBox = new PictureBox();
+                draged_pictureBox = pictureBoxes[i];
+                pictureBoxes[i].DoDragDrop(pictureBoxes[i].Image, DragDropEffects.Copy);
             }
         }
 
@@ -216,43 +180,40 @@ namespace Puzzle
             }
         }
 
-        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        private void pictureBox1_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                draged_pictureBox = new PictureBox();
-                draged_pictureBox = pictureBoxes[0];
-                this.pictureBox1.DoDragDrop(this.pictureBox1.Image, DragDropEffects.Copy);
-            }
+            drop(0, e);
         }
 
-        private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
+        private void pictureBox2_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                draged_pictureBox = new PictureBox();
-                draged_pictureBox = pictureBoxes[1];
-                this.pictureBox2.DoDragDrop(this.pictureBox2.Image, DragDropEffects.Copy);
-            }
+            drop(1, e);
         }
 
-        private void pictureBox3_MouseDown(object sender, MouseEventArgs e)
+        private void pictureBox3_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                draged_pictureBox = new PictureBox();
-                draged_pictureBox = pictureBoxes[2];
-                this.pictureBox3.DoDragDrop(this.pictureBox3.Image, DragDropEffects.Copy);
-            }
+            drop(2, e);
         }
 
-        private void pictureBox4_MouseDown(object sender, MouseEventArgs e)
+        private void pictureBox4_DragDrop(object sender, DragEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            drop(3, e);
+        }
+
+        public void drop(int i, DragEventArgs e)
+        {
+            draged_picture = new MemoryStream();
+            pictureBoxes[i].Image.Save(draged_picture, pictureBoxes[i].Image.RawFormat);
+            //-----------------------------------------------------------------------------
+            pictureBoxes[i].Image = (Bitmap)e.Data.GetData(DataFormats.Bitmap, true);
+            //-----------------------------------------------------------------------------
+            draged_pictureBox.Image = Image.FromStream(draged_picture);
+            //-----------------------------------------------------------------------------
+            if (gameOver())
             {
-                draged_pictureBox = new PictureBox();
-                draged_pictureBox = pictureBoxes[3];
-                this.pictureBox4.DoDragDrop(this.pictureBox4.Image, DragDropEffects.Copy);
+                updDB();
+                MessageBox.Show("Victory");
+                this.Close();
             }
         }
 
@@ -277,6 +238,7 @@ namespace Puzzle
             }
             return true;
         }
+
         public void updDB()
         {
             string timp = this.label_hh.Text + ":" + this.label_mm.Text + ":" + this.label_ss.Text;
