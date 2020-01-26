@@ -49,7 +49,7 @@ namespace Puzzle
                 poz = i.ToString();
                 if (pictures.insertPic(0, poz, fn, pic))
                 {
-                    MessageBox.Show("Pic added");
+                    //MessageBox.Show("Pic added");
                 }
                 else
                 {
@@ -117,15 +117,17 @@ namespace Puzzle
             {
                 if (this.comboBox1.SelectedItem.ToString() == "4")
                 {
+                    GLOBAL.selectedPat = 4;
                     GLOBAL.selectedImg = slectedimg;
                     Lvl1 l1 = new Lvl1();
                     l1.ShowDialog();
                 }
                 else if (this.comboBox1.SelectedItem.ToString() == "9")
                 {
+                    GLOBAL.selectedPat = 9;
                     GLOBAL.selectedImg = slectedimg;
-                    Lvl2 l2 = new Lvl2();
-                    l2.ShowDialog();
+                    Lvl1 l1 = new Lvl1();
+                    l1.ShowDialog();
                 }
             }
         }
@@ -163,6 +165,7 @@ namespace Puzzle
         private void button_Iesire_Click(object sender, EventArgs e)
         {
             string fn = Application.StartupPath + @"\Clasament.txt";
+            dataGridView1.DataSource = clasament.getClasament();
             DataTable table = clasament.getClasament();
             string row = "";
             System.IO.File.AppendAllText(fn, "\n\n");
@@ -172,13 +175,18 @@ namespace Puzzle
             {
                 for (int j = 1; j <= 3; j++)
                 {
-                    row += dataGridView1.Rows[i].Cells[j].Value.ToString() + " ";
+                    row = row + dataGridView1.Rows[i].Cells[j].Value.ToString() + " ";
                 }
                 System.IO.File.AppendAllText(fn, row);
                 System.IO.File.AppendAllText(fn, "\n");
                 row = "";
             }
             this.Close();
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            this.dataGridView1.DataSource = clasament.getClasament();
         }
     }
 }

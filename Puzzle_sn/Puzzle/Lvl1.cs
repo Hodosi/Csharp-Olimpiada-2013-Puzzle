@@ -19,6 +19,7 @@ namespace Puzzle
         }
         List<string> val = new List<string>();
         int imgid = GLOBAL.selectedImg;
+        int imgPat = GLOBAL.selectedPat;
         Random rand = new Random();
         PICTURES pictures = new PICTURES();
         MemoryStream draged_picture;
@@ -28,12 +29,30 @@ namespace Puzzle
         List<PictureBox> pictureBoxes = new List<PictureBox>();
         private void Lvl1_Load(object sender, EventArgs e)
         {
+            if (imgPat == 4)
+            {
+                this.panel1.Location = new Point(this.panel1.Location.X + 200, this.panel1.Location.Y + 100);
+                this.pictureBox5.Visible = false;
+                this.pictureBox6.Visible = false;
+                this.pictureBox7.Visible = false;
+                this.pictureBox8.Visible = false;
+                this.pictureBox9.Visible = false;
+
+            }
             this.pictureBox1.AllowDrop = true;
             this.pictureBox2.AllowDrop = true;
             this.pictureBox3.AllowDrop = true;
             this.pictureBox4.AllowDrop = true;
+            if (imgPat == 9)
+            {
+                this.pictureBox5.AllowDrop = true;
+                this.pictureBox6.AllowDrop = true;
+                this.pictureBox7.AllowDrop = true;
+                this.pictureBox8.AllowDrop = true;
+                this.pictureBox9.AllowDrop = true;
+            }
             //----------------------------
-            MessageBox.Show(GLOBAL.selectedImg.ToString());
+            //MessageBox.Show(GLOBAL.selectedImg.ToString());
             this.timer1.Enabled = true;
             fillPicPozVal();
             //-----------------------------
@@ -47,8 +66,18 @@ namespace Puzzle
             pictureBoxes.Add(this.pictureBox2);
             pictureBoxes.Add(this.pictureBox3);
             pictureBoxes.Add(this.pictureBox4);
+            if (imgPat == 9)
+            {
+                pictureBoxes.Add(this.pictureBox5);
+                pictureBoxes.Add(this.pictureBox6);
+                pictureBoxes.Add(this.pictureBox7);
+                pictureBoxes.Add(this.pictureBox8);
+                pictureBoxes.Add(this.pictureBox9);
+            }
+            //------------------clear DB------------------------------
+            pictures.deletePic();
             //------------------save img into DB----------------------
-            for (int i = 1; i <= 4; i++)
+            for (int i = 1; i <= imgPat; i++)
             {
                 rimg = rand.Next(0, val.Count);
                 fn = Application.StartupPath + @"\Img\image" + imgid.ToString() + @"\image" + imgid.ToString() + " [www.imagesplitter.net]-";
@@ -60,7 +89,7 @@ namespace Puzzle
                 pictureBox.Image.Save(pic, pictureBox.Image.RawFormat);
                 if (pictures.insertPic(imgid, poz, fn, pic))
                 {
-                    MessageBox.Show("Pic added");
+                   // MessageBox.Show("Pic added");
                 }
                 else
                 {
@@ -76,9 +105,18 @@ namespace Puzzle
 
         public void fillPicPozVal()
         {
-            for (int i = 0; i < 2; i++)
+            int k = 0;
+            if (imgPat == 4)
             {
-                for (int j = 0; j < 2; j++)
+                k = 2;
+            }
+            else
+            {
+                k = 3;
+            }
+            for (int i = 0; i < k; i++)
+            {
+                for (int j = 0; j < k; j++)
                 {
                     string valname = i.ToString() + "-" + j.ToString();
                     val.Add(valname);
@@ -136,6 +174,30 @@ namespace Puzzle
         {
             down(3, e);
         }
+        private void pictureBox5_MouseDown(object sender, MouseEventArgs e)
+        {
+            down(4, e);
+        }
+
+        private void pictureBox6_MouseDown(object sender, MouseEventArgs e)
+        {
+            down(5, e);
+        }
+
+        private void pictureBox7_MouseDown(object sender, MouseEventArgs e)
+        {
+            down(6, e);
+        }
+
+        private void pictureBox8_MouseDown(object sender, MouseEventArgs e)
+        {
+            down(7, e);
+        }
+
+        private void pictureBox9_MouseDown(object sender, MouseEventArgs e)
+        {
+            down(8, e);
+        }
 
         public void down(int i, MouseEventArgs e)
         {
@@ -163,6 +225,30 @@ namespace Puzzle
         }
 
         private void pictureBox4_DragEnter(object sender, DragEventArgs e)
+        {
+            enter(e);
+        }
+        private void pictureBox5_DragEnter(object sender, DragEventArgs e)
+        {
+            enter(e);
+        }
+
+        private void pictureBox6_DragEnter(object sender, DragEventArgs e)
+        {
+            enter(e);
+        }
+
+        private void pictureBox7_DragEnter(object sender, DragEventArgs e)
+        {
+            enter(e);
+        }
+
+        private void pictureBox8_DragEnter(object sender, DragEventArgs e)
+        {
+            enter(e);
+        }
+
+        private void pictureBox9_DragEnter(object sender, DragEventArgs e)
         {
             enter(e);
         }
@@ -199,6 +285,30 @@ namespace Puzzle
         {
             drop(3, e);
         }
+        private void pictureBox5_DragDrop(object sender, DragEventArgs e)
+        {
+            drop(4, e);
+        }
+
+        private void pictureBox6_DragDrop(object sender, DragEventArgs e)
+        {
+            drop(5, e);
+        }
+
+        private void pictureBox7_DragDrop(object sender, DragEventArgs e)
+        {
+            drop(6, e);
+        }
+
+        private void pictureBox8_DragDrop(object sender, DragEventArgs e)
+        {
+            drop(7, e);
+        }
+
+        private void pictureBox9_DragDrop(object sender, DragEventArgs e)
+        {
+            drop(8, e);
+        }
 
         public void drop(int i, DragEventArgs e)
         {
@@ -212,6 +322,8 @@ namespace Puzzle
             if (gameOver())
             {
                 updDB();
+                Joc joc_form = new Joc();
+                joc_form.dataGridView1.DataSource = clasament.getClasament();
                 MessageBox.Show("Victory");
                 this.Close();
             }
@@ -219,34 +331,67 @@ namespace Puzzle
 
         public bool gameOver()
         {
-            MemoryStream overPic, over_valid_pic;
-            for (int i = 1; i <= 4; i++)
+            if (imgPat == 4)
             {
-                overPic = new MemoryStream();
-                pictureBoxes[i - 1].Image.Save(overPic, pictureBoxes[i - 1].Image.RawFormat);
-
-                DataTable table = pictures.getPic(val[i - 1]);
-                byte[] img = (byte[])table.Rows[0][0];
-                over_valid_pic = new MemoryStream(img);
-
-                var ms1 = overPic.ToArray();
-                var ms2 = over_valid_pic.ToArray();
-                if (!ms1.SequenceEqual(ms2))
+                MemoryStream overPic, over_valid_pic;
+                for (int i = 1; i <= 4; i++)
                 {
-                    return false;
+                    overPic = new MemoryStream();
+                    pictureBoxes[i - 1].Image.Save(overPic, pictureBoxes[i - 1].Image.RawFormat);
+
+                    DataTable table = pictures.getPic(val[i - 1]);
+                    byte[] img = (byte[])table.Rows[0][0];
+                    over_valid_pic = new MemoryStream(img);
+
+                    var ms1 = overPic.ToArray();
+                    var ms2 = over_valid_pic.ToArray();
+                    if (!ms1.SequenceEqual(ms2))
+                    {
+                        return false;
+                    }
                 }
+                return true;
             }
-            return true;
+            else
+            {
+                if(over(1, 1) && over(2, 2) && over(5,3) && over(3,4) && over(4,5) && over(6,6) && over(7,7) && over(8,8) && over(9,9))
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        public bool over(int i,int j)
+        {
+            MemoryStream overPic, over_valid_pic;
+            overPic = new MemoryStream();
+            pictureBoxes[i - 1].Image.Save(overPic, pictureBoxes[i - 1].Image.RawFormat);
+
+            DataTable table = pictures.getPic(val[j - 1]);
+            byte[] img = (byte[])table.Rows[0][0];
+            over_valid_pic = new MemoryStream(img);
+
+            var ms1 = overPic.ToArray();
+            var ms2 = over_valid_pic.ToArray();
+            if (!ms1.SequenceEqual(ms2))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public void updDB()
         {
             string timp = this.label_hh.Text + ":" + this.label_mm.Text + ":" + this.label_ss.Text;
             string nume = GLOBAL.globalusername;
-            int ptr = 4;
+            int ptr = imgPat;
             if (clasament.insertClasament(nume, timp, ptr))
             {
-                MessageBox.Show("Clasament Updated");
+              //  MessageBox.Show("Clasament Updated");
             }
             else
             {

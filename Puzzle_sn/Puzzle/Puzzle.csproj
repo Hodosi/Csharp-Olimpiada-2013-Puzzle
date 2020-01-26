@@ -71,12 +71,6 @@
     <Compile Include="Lvl1.Designer.cs">
       <DependentUpon>Lvl1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lvl2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Lvl2.Designer.cs">
-      <DependentUpon>Lvl2.cs</DependentUpon>
-    </Compile>
     <Compile Include="PICTURES.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,9 +85,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Lvl1.resx">
       <DependentUpon>Lvl1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Lvl2.resx">
-      <DependentUpon>Lvl2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -24,15 +24,22 @@ namespace Puzzle
 
         private void button_delete_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(this.dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-            if (clasament.deletUser(id))
+            try
             {
-                this.dataGridView1.DataSource = clasament.getClasament();
-                MessageBox.Show("user deleted");
+                int id = Convert.ToInt32(this.dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                if (clasament.deletUser(id))
+                {
+                    this.dataGridView1.DataSource = clasament.getClasament();
+                    MessageBox.Show("user deleted");
+                }
+                else
+                {
+                    MessageBox.Show("error");
+                }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("error");
+                MessageBox.Show(ex.ToString());
             }
         }
 

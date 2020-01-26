@@ -12,7 +12,6 @@ D:\Desktop\2013\Puzzle_sn\Puzzle\obj\Debug\Puzzle.Lvl2.resources
 D:\Desktop\2013\Csharp-Olimpiada-2013-Puzzle\Puzzle_sn\Puzzle\obj\Debug\Puzzle.csprojAssemblyReference.cache
 D:\Desktop\2013\Csharp-Olimpiada-2013-Puzzle\Puzzle_sn\Puzzle\obj\Debug\Puzzle.LogIn.resources
 D:\Desktop\2013\Csharp-Olimpiada-2013-Puzzle\Puzzle_sn\Puzzle\obj\Debug\Puzzle.Lvl1.resources
-D:\Desktop\2013\Csharp-Olimpiada-2013-Puzzle\Puzzle_sn\Puzzle\obj\Debug\Puzzle.Lvl2.resources
 D:\Desktop\2013\Csharp-Olimpiada-2013-Puzzle\Puzzle_sn\Puzzle\obj\Debug\Puzzle.Properties.Resources.resources
 D:\Desktop\2013\Csharp-Olimpiada-2013-Puzzle\Puzzle_sn\Puzzle\obj\Debug\Puzzle.csproj.GenerateResource.cache
 D:\Desktop\2013\Csharp-Olimpiada-2013-Puzzle\Puzzle_sn\Puzzle\obj\Debug\Puzzle.exe
