@@ -40,10 +40,12 @@
             this.label_mm = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label_ss = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -54,7 +56,7 @@
             // pictureBox4
             // 
             this.pictureBox4.InitialImage = null;
-            this.pictureBox4.Location = new System.Drawing.Point(518, 491);
+            this.pictureBox4.Location = new System.Drawing.Point(509, 454);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(500, 400);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -67,7 +69,7 @@
             // pictureBox3
             // 
             this.pictureBox3.InitialImage = null;
-            this.pictureBox3.Location = new System.Drawing.Point(12, 491);
+            this.pictureBox3.Location = new System.Drawing.Point(3, 454);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(500, 400);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -80,7 +82,7 @@
             // pictureBox2
             // 
             this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(518, 85);
+            this.pictureBox2.Location = new System.Drawing.Point(509, 48);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(500, 400);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -94,7 +96,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 85);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 48);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(500, 400);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -108,7 +110,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(367, 34);
+            this.label1.Location = new System.Drawing.Point(384, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 29);
             this.label1.TabIndex = 11;
@@ -118,7 +120,7 @@
             // 
             this.label_hh.AutoSize = true;
             this.label_hh.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_hh.Location = new System.Drawing.Point(448, 33);
+            this.label_hh.Location = new System.Drawing.Point(465, 15);
             this.label_hh.Name = "label_hh";
             this.label_hh.Size = new System.Drawing.Size(39, 29);
             this.label_hh.TabIndex = 12;
@@ -128,7 +130,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(493, 34);
+            this.label3.Location = new System.Drawing.Point(510, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(19, 29);
             this.label3.TabIndex = 13;
@@ -138,7 +140,7 @@
             // 
             this.label_mm.AutoSize = true;
             this.label_mm.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_mm.Location = new System.Drawing.Point(513, 34);
+            this.label_mm.Location = new System.Drawing.Point(530, 16);
             this.label_mm.Name = "label_mm";
             this.label_mm.Size = new System.Drawing.Size(39, 29);
             this.label_mm.TabIndex = 14;
@@ -148,7 +150,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(558, 33);
+            this.label5.Location = new System.Drawing.Point(575, 15);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(19, 29);
             this.label5.TabIndex = 15;
@@ -158,27 +160,38 @@
             // 
             this.label_ss.AutoSize = true;
             this.label_ss.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_ss.Location = new System.Drawing.Point(583, 33);
+            this.label_ss.Location = new System.Drawing.Point(600, 15);
             this.label_ss.Name = "label_ss";
             this.label_ss.Size = new System.Drawing.Size(39, 29);
             this.label_ss.TabIndex = 16;
             this.label_ss.Text = "00";
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.pictureBox4);
+            this.panel1.Controls.Add(this.label_ss);
+            this.panel1.Controls.Add(this.label_hh);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label_mm);
+            this.panel1.Location = new System.Drawing.Point(466, 75);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1010, 856);
+            this.panel1.TabIndex = 17;
+            // 
             // Lvl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1026, 903);
-            this.Controls.Add(this.label_ss);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label_mm);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label_hh);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Lvl1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -189,8 +202,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -207,5 +221,6 @@
         private System.Windows.Forms.Label label_mm;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label_ss;
+        private System.Windows.Forms.Panel panel1;
     }
 }

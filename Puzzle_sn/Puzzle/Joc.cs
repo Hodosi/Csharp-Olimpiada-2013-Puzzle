@@ -159,8 +159,10 @@ namespace Puzzle
             string fn = Application.StartupPath + @"\Clasament.txt";
             DataTable table = clasament.getClasament();
             string row="";
-
-            for(int i = 0; i < table.Rows.Count; i++)
+            System.IO.File.AppendAllText(fn, "\n\n");
+            System.IO.File.AppendAllText(fn, "Clasament Nou");
+            System.IO.File.AppendAllText(fn, "\n\n");
+            for (int i = 0; i < table.Rows.Count; i++)
             {
                 for (int j = 1; j <=3; j++)
                 {
@@ -172,6 +174,11 @@ namespace Puzzle
                 row = "";
             }
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

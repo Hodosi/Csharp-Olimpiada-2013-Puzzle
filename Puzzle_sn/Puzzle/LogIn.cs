@@ -16,39 +16,34 @@ namespace Puzzle
             InitializeComponent();
         }
 
-        string nume_user="";
         private void button_jucator_Click(object sender, EventArgs e)
         {
-            if (this.textBox_pass.Text == "jucator")
+            if (this.textBox_pass.Text == "jucator" && this.textBox_nume.Text.Trim() != "")
             {
-                nume_user = this.textBox_nume.Text;
+                string nume_user = this.textBox_nume.Text;
                 GLOBAL.globalusername = nume_user;
                 Joc jf = new Joc();
                 jf.ShowDialog();
+                this.Close();
             }
             else
             {
-                MessageBox.Show("Parola Invalida!");
+                MessageBox.Show("Introduceti o parola si un nume valid!");
             }
         }
 
         private void button_admin_Click(object sender, EventArgs e)
         {
-            if (this.textBox_pass.Text == "administrator")
+            if (this.textBox_pass.Text == "administrator" && this.textBox_nume.Text== "admin")
             {
-                //nume_user = this.textBox_nume.Text;
                 Administrare af = new Administrare();
                 af.ShowDialog();
+                this.Close();
             }
             else
             {
-                MessageBox.Show("Parola Invalida!");
+                MessageBox.Show("Nume sau Parola invalida!");
             }
-        }
-
-        private void LogIn_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

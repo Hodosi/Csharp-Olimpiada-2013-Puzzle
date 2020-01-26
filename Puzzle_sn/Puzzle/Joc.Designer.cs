@@ -29,29 +29,32 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Joc));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tabPage_Iesire = new System.Windows.Forms.TabPage();
+            this.button_Iesire = new System.Windows.Forms.Button();
             this.tabPage_Clasament = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage_Joc_Nou = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.button_Iesire = new System.Windows.Forms.Button();
             this.tabPage_Iesire.SuspendLayout();
             this.tabPage_Clasament.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage_Joc_Nou.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -66,91 +69,97 @@
             // 
             // tabPage_Iesire
             // 
+            this.tabPage_Iesire.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage_Iesire.BackgroundImage")));
+            this.tabPage_Iesire.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage_Iesire.ContextMenuStrip = this.contextMenuStrip1;
             this.tabPage_Iesire.Controls.Add(this.button_Iesire);
             this.tabPage_Iesire.Location = new System.Drawing.Point(4, 38);
             this.tabPage_Iesire.Name = "tabPage_Iesire";
-            this.tabPage_Iesire.Size = new System.Drawing.Size(1574, 1011);
+            this.tabPage_Iesire.Size = new System.Drawing.Size(1916, 1013);
             this.tabPage_Iesire.TabIndex = 2;
             this.tabPage_Iesire.Text = "Iesire";
             this.tabPage_Iesire.UseVisualStyleBackColor = true;
             // 
+            // button_Iesire
+            // 
+            this.button_Iesire.BackColor = System.Drawing.Color.Gray;
+            this.button_Iesire.Font = new System.Drawing.Font("MV Boli", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Iesire.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.button_Iesire.Location = new System.Drawing.Point(533, 278);
+            this.button_Iesire.Name = "button_Iesire";
+            this.button_Iesire.Size = new System.Drawing.Size(103, 64);
+            this.button_Iesire.TabIndex = 0;
+            this.button_Iesire.Text = "Iesire";
+            this.button_Iesire.UseVisualStyleBackColor = false;
+            this.button_Iesire.Click += new System.EventHandler(this.button_Iesire_Click);
+            // 
             // tabPage_Clasament
             // 
+            this.tabPage_Clasament.BackColor = System.Drawing.Color.Silver;
             this.tabPage_Clasament.Controls.Add(this.dataGridView1);
             this.tabPage_Clasament.Location = new System.Drawing.Point(4, 38);
             this.tabPage_Clasament.Name = "tabPage_Clasament";
             this.tabPage_Clasament.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Clasament.Size = new System.Drawing.Size(1574, 1011);
+            this.tabPage_Clasament.Size = new System.Drawing.Size(1916, 1013);
             this.tabPage_Clasament.TabIndex = 1;
             this.tabPage_Clasament.Text = "Clasament";
-            this.tabPage_Clasament.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 6);
+            this.dataGridView1.Location = new System.Drawing.Point(655, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(606, 387);
+            this.dataGridView1.Size = new System.Drawing.Size(606, 1013);
             this.dataGridView1.TabIndex = 0;
             // 
             // tabPage_Joc_Nou
             // 
-            this.tabPage_Joc_Nou.Controls.Add(this.button1);
-            this.tabPage_Joc_Nou.Controls.Add(this.pictureBox6);
-            this.tabPage_Joc_Nou.Controls.Add(this.pictureBox5);
-            this.tabPage_Joc_Nou.Controls.Add(this.pictureBox4);
-            this.tabPage_Joc_Nou.Controls.Add(this.pictureBox3);
-            this.tabPage_Joc_Nou.Controls.Add(this.pictureBox2);
-            this.tabPage_Joc_Nou.Controls.Add(this.label1);
-            this.tabPage_Joc_Nou.Controls.Add(this.comboBox1);
-            this.tabPage_Joc_Nou.Controls.Add(this.pictureBox1);
+            this.tabPage_Joc_Nou.BackColor = System.Drawing.Color.Silver;
+            this.tabPage_Joc_Nou.Controls.Add(this.panel1);
             this.tabPage_Joc_Nou.Location = new System.Drawing.Point(4, 38);
             this.tabPage_Joc_Nou.Name = "tabPage_Joc_Nou";
             this.tabPage_Joc_Nou.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Joc_Nou.Size = new System.Drawing.Size(1574, 1011);
+            this.tabPage_Joc_Nou.Size = new System.Drawing.Size(1916, 1013);
             this.tabPage_Joc_Nou.TabIndex = 0;
             this.tabPage_Joc_Nou.Text = "Joc Nou";
-            this.tabPage_Joc_Nou.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // panel1
             // 
-            this.button1.Location = new System.Drawing.Point(718, 878);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 50);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Play";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.pictureBox4);
+            this.panel1.Controls.Add(this.pictureBox5);
+            this.panel1.Controls.Add(this.pictureBox6);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(217, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1522, 936);
+            this.panel1.TabIndex = 9;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // pictureBox6
+            // comboBox1
             // 
-            this.pictureBox6.InitialImage = null;
-            this.pictureBox6.Location = new System.Drawing.Point(1047, 472);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(500, 400);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 7;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.InitialImage = null;
-            this.pictureBox5.Location = new System.Drawing.Point(541, 472);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(500, 400);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 6;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "4",
+            "9"});
+            this.comboBox1.Location = new System.Drawing.Point(792, 9);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 33);
+            this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // pictureBox4
             // 
             this.pictureBox4.InitialImage = null;
-            this.pictureBox4.Location = new System.Drawing.Point(35, 472);
+            this.pictureBox4.Location = new System.Drawing.Point(3, 462);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(500, 400);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -158,10 +167,51 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.InitialImage = null;
+            this.pictureBox5.Location = new System.Drawing.Point(509, 462);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(500, 400);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 6;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.InitialImage = null;
+            this.pictureBox6.Location = new System.Drawing.Point(1015, 462);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(500, 400);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 7;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(699, 868);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(180, 50);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Play";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(593, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 29);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Numar Patratele:";
+            // 
             // pictureBox3
             // 
             this.pictureBox3.InitialImage = null;
-            this.pictureBox3.Location = new System.Drawing.Point(1047, 66);
+            this.pictureBox3.Location = new System.Drawing.Point(1015, 56);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(500, 400);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -172,7 +222,7 @@
             // pictureBox2
             // 
             this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(541, 66);
+            this.pictureBox2.Location = new System.Drawing.Point(509, 56);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(500, 400);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -180,34 +230,12 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(635, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 29);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Numar Patratele:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "4",
-            "9"});
-            this.comboBox1.Location = new System.Drawing.Point(834, 15);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 33);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.AccessibleName = "pictureBox1";
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(35, 66);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 56);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(500, 400);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -225,39 +253,30 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1582, 1053);
+            this.tabControl1.Size = new System.Drawing.Size(1924, 1055);
             this.tabControl1.TabIndex = 1;
-            // 
-            // button_Iesire
-            // 
-            this.button_Iesire.Location = new System.Drawing.Point(267, 122);
-            this.button_Iesire.Name = "button_Iesire";
-            this.button_Iesire.Size = new System.Drawing.Size(101, 73);
-            this.button_Iesire.TabIndex = 0;
-            this.button_Iesire.Text = "Iesire";
-            this.button_Iesire.UseVisualStyleBackColor = true;
-            this.button_Iesire.Click += new System.EventHandler(this.button_Iesire_Click);
             // 
             // Joc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1582, 1053);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Joc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Joc";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Joc_Load);
             this.tabPage_Iesire.ResumeLayout(false);
             this.tabPage_Clasament.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage_Joc_Nou.ResumeLayout(false);
-            this.tabPage_Joc_Nou.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -284,5 +303,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button_Iesire;
+        private System.Windows.Forms.Panel panel1;
     }
 }

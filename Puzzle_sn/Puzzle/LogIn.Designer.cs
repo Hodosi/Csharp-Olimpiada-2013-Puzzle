@@ -41,6 +41,7 @@
             this.textBox_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_pass.Location = new System.Drawing.Point(159, 147);
             this.textBox_pass.Name = "textBox_pass";
+            this.textBox_pass.PasswordChar = '*';
             this.textBox_pass.Size = new System.Drawing.Size(244, 30);
             this.textBox_pass.TabIndex = 0;
             // 
@@ -107,8 +108,7 @@
             this.Controls.Add(this.textBox_pass);
             this.Name = "LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Log In";
-            this.Load += new System.EventHandler(this.LogIn_Load);
+            this.Text = "Log in";
             this.ResumeLayout(false);
             this.PerformLayout();
 
